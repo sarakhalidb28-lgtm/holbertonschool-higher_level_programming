@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print("{:s}{:s}{:s}".format("object-oriented ", "programming ", "with Python"))
+str1 = "object-oriented programming with Python"
+print(str1[:12] + str1[13:24] + str1[25:])
