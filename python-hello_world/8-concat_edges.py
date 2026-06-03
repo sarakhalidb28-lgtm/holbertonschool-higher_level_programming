@@ -1,3 +1,5 @@
 #!/usr/bin/python3
-word = "Python is cool"
-print(word[0:6] + word[6:8] + word[8:])
+word = "Programming "
+word2 = "with "
+word3 = "Python"
+print(word + word2 + word3)
