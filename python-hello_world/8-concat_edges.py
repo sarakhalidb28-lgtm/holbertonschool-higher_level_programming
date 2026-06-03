@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-print("{} {} {}".format("object-oriented", "programming", "with Python"))
+print("{:s}{:s}{:s}".format("object-oriented ", "programming ", "with Python"))
