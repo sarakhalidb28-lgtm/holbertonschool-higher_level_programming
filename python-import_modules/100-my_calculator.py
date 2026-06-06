@@ -1,4 +1,3 @@
-cat << 'EOF' > 100-my_calculator.py
 #!/usr/bin/python3
 if __name__ == "__main__":
     import sys
@@ -28,4 +27,3 @@ if __name__ == "__main__":
 
     # طباعة النتيجة بالشكل المطلوب
     print("{} {} {} = {}".format(a, operator, b, result))
-EOF
