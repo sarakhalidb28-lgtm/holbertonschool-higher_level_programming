@@ -22,7 +22,9 @@ def matrix_divided(matrix, div):
     Returns:
         A new matrix containing the divided elements rounded to 2 decimal places.
     """
-    msg = "matrix must be a matrix (list of lists) of integers/floats"
+    msg = (
+        "matrix must be a matrix (list of lists) of integers/floats"
+    )
 
     # التحقق من أن المصفوفة عبارة عن قائمة وليست فارغة
     if not isinstance(matrix, list) or len(matrix) == 0:
