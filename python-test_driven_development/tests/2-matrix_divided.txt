@@ -31,7 +31,7 @@ Testing Matrix Type Errors (Not list of lists):
         ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-Testing Matrix Elements Type Errors (Strings or None inside):
+Testing Matrix Elements Type Errors (Strings inside):
     >>> matrix_divided([[1, 2], [3, "School"]], 2)
     Traceback (most recent call last):
         ...
@@ -58,3 +58,15 @@ Testing Zero Division Error:
 Testing Float Overflow for Divisor (Infinity):
     >>> matrix_divided([[1, 2], [3, 4]], float('inf'))
     [[0.0, 0.0], [0.0, 0.0]]
+
+Testing Missing One Argument:
+    >>> matrix_divided([[1, 2]])
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing...
+
+Testing Missing Two Arguments:
+    >>> matrix_divided()
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing...
