@@ -20,7 +20,8 @@ def matrix_divided(matrix, div):
         ZeroDivisionError: If div is equal to 0.
 
     Returns:
-        A new matrix containing the divided elements rounded to 2 decimal places.
+            TypeError: If matrix is not a list of lists
+        of integers/floats.
     """
     msg = (
         "matrix must be a matrix (list of lists) of integers/floats"
