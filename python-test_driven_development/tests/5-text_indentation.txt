@@ -1,0 +1,62 @@
+The ``5-text_indentation`` module
+==================================
+
+Using ``text_indentation``
+--------------------------
+
+Importing the function:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Basic usage matching standard project requirements:
+    >>> text_indentation("Hello. World? Testing: This.")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+    Testing:
+    <BLANKLINE>
+    This.
+    <BLANKLINE>
+
+Testing strings with multiple consecutive target characters:
+    >>> text_indentation("Yes?? No.. Okay:: Done.")
+    Yes?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    No.
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    Okay:
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    Done.
+    <BLANKLINE>
+
+Testing string text with absolutely no punctuation characters:
+    >>> text_indentation("This is a simple text sentence without symbols")
+    This is a simple text sentence without symbols
+
+Testing TypeError exceptions when passing invalid types:
+    >>> text_indentation(12345)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+    >>> text_indentation(["list", "of", "strings"])
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Testing parameter requirements and missing inputs:
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
