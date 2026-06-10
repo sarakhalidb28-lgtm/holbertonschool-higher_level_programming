@@ -23,7 +23,8 @@ def matrix_divided(matrix, div):
         A new matrix containing the divided elements rounded to 2 decimal places.
     """
     msg = (
-        "matrix must be a matrix (list of lists) of integers/floats"
+        "matrix must be a matrix (list of lists) "
+        "of integers/floats"
     )
 
     # التحقق من أن المصفوفة عبارة عن قائمة وليست فارغة
@@ -39,7 +40,7 @@ def matrix_divided(matrix, div):
                 raise TypeError(msg)
 
     # التحقق من أن جميع الأسطر متساوية في الطول
-    row_size = len(matrix[0])
+    row_size = len(matrix)
     if not all(len(row) == row_size for row in matrix):
         raise TypeError("Each row of the matrix must have the same size")
 
