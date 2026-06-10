@@ -24,9 +24,11 @@ def matrix_divided(matrix, div):
     """
     msg = "matrix must be a matrix (list of lists) of integers/floats"
 
+    # التحقق من أن المصفوفة عبارة عن قائمة وليست فارغة
     if not isinstance(matrix, list) or len(matrix) == 0:
         raise TypeError(msg)
 
+    # التحقق من الأسطر والعناصر ومنع قيم الـ Booleans تمامًا
     for row in matrix:
         if not isinstance(row, list) or len(row) == 0:
             raise TypeError(msg)
@@ -34,15 +36,18 @@ def matrix_divided(matrix, div):
             if type(element) not in [int, float]:
                 raise TypeError(msg)
 
-    # المقارنة بطول السطر الأول لضمان الأبعاد المستطيلة الصحيحة
-    first_row_len = len(matrix[0])
-    if not all(len(row) == first_row_len for row in matrix):
+    # التحقق من أن جميع الأسطر متساوية في الطول
+    row_size = len(matrix[0])
+    if not all(len(row) == row_size for row in matrix):
         raise TypeError("Each row of the matrix must have the same size")
 
+    # التحقق من نوع القاسم (منع البوليان أيضًا)
     if type(div) not in [int, float]:
         raise TypeError("div must be a number")
 
+    # التحقق من القسمة على صفر
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
+    # إنشاء المصفوفة الجديدة وتقريب النتائج لـ 2 خانة عشرية
     return [[round(element / div, 2) for element in row] for row in matrix]
