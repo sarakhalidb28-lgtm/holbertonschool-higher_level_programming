@@ -4,42 +4,55 @@ The ``0-add_integer`` module
 Using ``add_integer``
 ---------------------
 
-Import the function:
+Importing the function:
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Passing regular integers:
+Basic usage:
     >>> add_integer(1, 2)
     3
 
-Passing a single integer (b defaults to 98):
     >>> add_integer(2)
     100
 
-Passing negative numbers:
     >>> add_integer(100, -2)
     98
 
-Passing floating point numbers (should cast to int):
     >>> add_integer(100.3, -2)
     98
 
     >>> add_integer(2.9, 3.1)
     5
 
-Passing a non-numeric value for b:
+Checking Type Errors:
     >>> add_integer(4, "School")
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
 
-Passing a non-numeric value for a:
     >>> add_integer("School", 4)
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
 
-Passing None value:
     >>> add_integer(None)
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
+
+Checking Float Overflow (Infinity):
+    >>> add_integer(float('inf'), 4)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+Checking NaN (Not a Number):
+    >>> add_integer(float('nan'), 4)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
+
+Checking Missing Arguments:
+    >>> add_integer()
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
