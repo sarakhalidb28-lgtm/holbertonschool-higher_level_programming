@@ -19,22 +19,9 @@ def add_integer(a, b=98):
     Returns:
         The sum of a and b as an integer.
     """
-    # التحقق الصارم من النوع (منع البوليان تماماً لأن isinstance(True, int) هي True)
     if type(a) not in [int, float]:
         raise TypeError("a must be an integer")
     if type(b) not in [int, float]:
-        raise TypeError("b must be an integer")
-
-    # التحقق من قيم NaN (لأن NaN لا تساوي نفسها)
-    if a != a:
-        raise TypeError("a must be an integer")
-    if b != b:
-        raise TypeError("b must be an integer")
-
-    # التحقق من قيم Float overflow (Infinity)
-    if a in [float('inf'), float('-inf')]:
-        raise TypeError("a must be an integer")
-    if b in [float('inf'), float('-inf')]:
         raise TypeError("b must be an integer")
 
     return int(a) + int(b)
