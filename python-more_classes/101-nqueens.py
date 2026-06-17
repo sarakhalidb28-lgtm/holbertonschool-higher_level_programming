@@ -44,7 +44,6 @@ def is_safe(board, row, col):
 def solve_nqueens(n, row, board, solutions):
     """البحث عن الحلول الممكنة لترتيب الوزيرات بشكل متكرر."""
     if row == n:
-        # تحويل الحل بالشكل المطلوب: قائمة تحتوي على إحداثيات [الصف، العمود]
         solutions.append([[i, board[i]] for i in range(n)])
         return
 
@@ -52,7 +51,6 @@ def solve_nqueens(n, row, board, solutions):
         if is_safe(board, row, col):
             board[row] = col
             solve_nqueens(n, row + 1, board, solutions)
-            # التراجع تلقائياً عند تجربة العمود التالي
 
 
 def main():
