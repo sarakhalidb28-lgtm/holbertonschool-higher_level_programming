@@ -5,7 +5,7 @@
 
 
 class Rectangle:
-    """كلاس يمثل مستطيل يحتوي على عداد عام، ورمز طباعة مخصص، والخصائص والدوال."""
+    """كلاس يمثل مستطيل يحتوي على عداد عام، ورمز طباعة مخصص، والخصائص."""
 
     # متغيرات عامة للكلاس (Class attributes)
     number_of_instances = 0
@@ -56,11 +56,11 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """إرجاع تمثيل نصي للمستطيل باستخدام الرمز المخزن في print_symbol."""
+        """إرجاع تمثيل نصي للمستطيل باستخدام الرمز المخزن."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        
-        # تحويل الرمز المخزن لنص مباشرة عند تكراره ليدعم السلاسل النصية أو القوائم
+
+        # تم تقصير السطر وإزالة المسافات الفارغة للتوافق مع pycodestyle
         line = str(self.print_symbol) * self.__width
         rect_lines = [line for _ in range(self.__height)]
         return "\n".join(rect_lines)
@@ -70,6 +70,6 @@ class Rectangle:
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        """طباعة رسالة مخصصة وتقليل عداد الكائنات النشطة عند حذف الكائن."""
+        """طباعة رسالة مخصصة وتقليل عداد الكائنات عند حذف الكائن."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
