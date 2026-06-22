@@ -1,0 +1,46 @@
+The `MyList` class inherits directly from the built-in list.
+===========================================================
+
+First, verify module-level documentation exist and is valid:
+    >>> module = __import__('1-my_list')
+    >>> len(module.__doc__) > 10
+    True
+
+Verify class-level documentation exist and is valid:
+    >>> MyList = module.MyList
+    >>> len(MyList.__doc__) > 10
+    True
+
+Verify method-level documentation exist and is valid:
+    >>> len(MyList.print_sorted.__doc__) > 10
+    True
+
+Basic functionality testing:
+    >>> l = MyList()
+    >>> l.append(4)
+    >>> l.append(1)
+    >>> l.append(3)
+    >>> l.append(2)
+    >>> print(l)
+    [4, 1, 3, 2]
+    >>> l.print_sorted()
+    [1, 2, 3, 4]
+    >>> print(l)
+    [4, 1, 3, 2]
+
+Testing with an empty list structure:
+    >>> empty_list = MyList()
+    >>> empty_list.print_sorted()
+    []
+
+Testing with negative integers and duplicates:
+    >>> complex_list = MyList([-5, 10, -5, 0, 2])
+    >>> complex_list.print_sorted()
+    [-5, -5, 0, 2, 10]
+    >>> print(complex_list)
+    [-5, 10, -5, 0, 2]
+
+Testing initial declaration directly passing variables:
+    >>> direct_list = MyList([9, 8, 7])
+    >>> direct_list.print_sorted()
+    [7, 8, 9]
