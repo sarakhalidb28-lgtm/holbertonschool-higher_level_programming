@@ -1,29 +1,18 @@
-Tasks
-12. My integer
-#advanced
-Write a class MyInt that inherits from int:
-
-MyInt is a rebel. MyInt has == and != operators inverted
-You are not allowed to import any module
-guillaume@ubuntu:~/$ cat 100-main.py
 #!/usr/bin/python3
-MyInt = __import__('100-my_int').MyInt
+"""This module defines a custom integer class named MyInt.
 
-my_i = MyInt(3)
-print(my_i)
-print(my_i == 3)
-print(my_i != 3)
+The MyInt class inherits from the built-in int class but has its
+equality (==) and inequality (!=) operators inverted.
+"""
 
-guillaume@ubuntu:~/$ ./100-main.py
-3
-False
-True
-guillaume@ubuntu:~/$ 
-No test cases needed
 
-Repo:
+class MyInt(int):
+    """A rebel integer class that has == and != operators inverted."""
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: python-inheritance
-File: 100-my_int.py
-Score of the task
+    def __eq__(self, other):
+        """Overrides equality to return inequality behavior."""
+        return super().__ne__(other)
+
+    def __ne__(self, other):
+        """Overrides inequality to return equality behavior."""
+        return super().__eq__(other)
