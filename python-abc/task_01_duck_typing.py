@@ -3,8 +3,8 @@
 This module defines the Shape abstract base class, its concrete subclasses
 Circle and Rectangle, and a standalone function to process them using duck typing.
 """
-import math
 from abc import ABC, abstractmethod
+import math
 
 
 class Shape(ABC):
