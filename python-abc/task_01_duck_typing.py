@@ -34,21 +34,30 @@ class Circle(Shape):
 
     def __init__(self, radius):
         """
-        Initializes the circle with a given radius.
+        Initializes the circle with a given radius and validates it.
         """
-        self.radius = radius
+        if not isinstance(radius, (int, float)):
+            raise TypeError("radius must be a number")
+        if radius <= 0:
+            raise ValueError("radius must be greater than 0")
+        self.__radius = radius
+
+    @property
+    def radius(self):
+        """Getter for radius."""
+        return self.__radius
 
     def area(self):
         """
         Returns the calculated area of the circle.
         """
-        return math.pi * (self.radius ** 2)
+        return math.pi * (self.__radius ** 2)
 
     def perimeter(self):
         """
         Returns the calculated perimeter (circumference) of the circle.
         """
-        return 2 * math.pi * self.radius
+        return 2 * math.pi * self.__radius
 
 
 class Rectangle(Shape):
@@ -58,28 +67,47 @@ class Rectangle(Shape):
 
     def __init__(self, width, height):
         """
-        Initializes the rectangle with a given width and height.
+        Initializes the rectangle with a given width and height and validates them.
         """
-        self.width = width
-        self.height = height
+        if not isinstance(width, (int, float)):
+            raise TypeError("width must be a number")
+        if width <= 0:
+            raise ValueError("width must be greater than 0")
+        if not isinstance(height, (int, float)):
+            raise TypeError("height must be a number")
+        if height <= 0:
+            raise ValueError("height must be greater than 0")
+            
+        self.__width = width
+        self.__height = height
+
+    @property
+    def width(self):
+        """Getter for width."""
+        return self.__width
+
+    @property
+    def height(self):
+        """Getter for height."""
+        return self.__height
 
     def area(self):
         """
         Returns the calculated area of the rectangle.
         """
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """
         Returns the calculated perimeter of the rectangle.
         """
-        return 2 * (self.width + self.height)
+        return 2 * (self.__width + self.__height)
 
 
 def shape_info(shape):
     """
     Prints the area and perimeter of a given shape object.
-    Relies on duck typing by invoking methods without explicit type checking.
+    Relies entirely on duck typing without using isinstance checks.
     """
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
