@@ -6,16 +6,16 @@ from math import pi
 
 
 class Shape(ABC):
-    """Abstract shape class"""
+    """Abstract class for shapes"""
 
     @abstractmethod
     def area(self):
-        """Calculate area"""
+        """Return area"""
         raise NotImplementedError
 
     @abstractmethod
     def perimeter(self):
-        """Calculate perimeter"""
+        """Return perimeter"""
         raise NotImplementedError
 
 
@@ -23,14 +23,15 @@ class Circle(Shape):
     """Circle class"""
 
     def __init__(self, radius):
+        """Initialize circle"""
         self.radius = radius
 
     def area(self):
-        """Return area of circle"""
-        return pi * self.radius ** 2
+        """Return circle area"""
+        return pi * (self.radius ** 2)
 
     def perimeter(self):
-        """Return perimeter of circle"""
+        """Return circle perimeter"""
         return 2 * pi * self.radius
 
 
@@ -38,19 +39,20 @@ class Rectangle(Shape):
     """Rectangle class"""
 
     def __init__(self, width, height):
+        """Initialize rectangle"""
         self.width = width
         self.height = height
 
     def area(self):
-        """Return area of rectangle"""
+        """Return rectangle area"""
         return self.width * self.height
 
     def perimeter(self):
-        """Return perimeter of rectangle"""
+        """Return rectangle perimeter"""
         return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
-    """Print shape info using duck typing"""
-    print("Area: {}".format(shape.area()))
-    print("Perimeter: {}".format(shape.perimeter()))
+    """Print shape information"""
+    print("Area:", shape.area())
+    print("Perimeter:", shape.perimeter())
